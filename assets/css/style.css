@@ -1,0 +1,649 @@
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary-color:#0095DA;
+    --text-color:#000;
+    --background-color:#F5F5F5;
+
+}
+
+body{
+
+    font-family: "Poppins", sans-serif;
+    color:var(--text-color);
+    background:var(--background-color);
+
+
+}
+
+
+
+.container{
+
+    max-width:1456px;
+    width:100%;
+    margin:0 auto;
+    padding:0 30px;
+
+}
+
+img{
+
+    width:100%;
+    display:block;
+
+}
+
+/*==========================
+    HEADER
+==========================*/
+
+.header{
+
+    width:100%;
+    position:absolute;
+    
+    left:0;
+    z-index:100;
+
+}
+
+
+
+.header-container{
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+    height: 150px;
+    margin: 46px auto;
+
+    /* padding:18px 30px; */
+ padding: 0px 33px 0px 29px; /* Top Right Bottom Left */
+   border-radius: 30px;
+   box-shadow: 0 4px 30px 0 rgba(0, 43, 73, 0.15);
+
+    /* box-shadow:0 10px 25px rgba(0,0,0,.12); */
+
+     position: relative; 
+
+}
+
+
+
+.logo{
+
+
+width: 201px;
+height: 84px;
+display: block;
+
+}
+
+
+
+.navbar{
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 37px;
+}
+
+.navbar a{
+
+    text-decoration:none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+    color: var(--text-color);
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+    color: var(--primary-color) ;
+}
+
+
+.mega-menu{
+    position: absolute;
+    width: 1390px;
+    top:100%;
+    left: 0;
+    padding:30px;
+    background:#fff;
+    border-radius:20px;
+    display: none;
+    z-index:999;
+}
+.nav-link:hover .mega-menu{
+    display: block;
+}
+
+.arrow-class{
+    display: flex;
+align-items: center;
+gap: 6px;
+}
+
+.arrow_down{
+    /* padding: 6.5px 0px 6.5px 0px; */
+      width: 10px;
+      height: 24px;
+    display: flex;
+    /* background-color: #0095DA; */
+    align-items: center;
+
+}
+
+.arrow_down img{
+    width: 8px;
+    height: 8px;
+    transition: transform 0.3s ease;
+
+}
+.arrow-class:hover .arrow_down img {
+    transform: rotateX(180deg);
+}
+
+/*==========================
+    RIGHT SIDE
+==========================*/
+
+.header-right{
+
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 15px;
+
+}
+
+/*==========================
+    LANGUAGE BUTTON
+==========================*/
+/* .flag {
+    display: flex;
+    width: 70px;
+    height: 50px;
+    padding: 15px 18px 15px 19px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+} */
+
+.flag-link {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    background: #D7EDF8;
+}
+
+.flag-img {
+    width: 33px;
+    height: 20px;
+    flex-shrink: 0;
+    aspect-ratio: 33/20;
+}
+
+
+.vector{
+    display: flex;
+width: 50px;
+height: 50px;
+padding: 11px;
+justify-content: center;
+align-items: center;
+aspect-ratio: 1/1;
+border-radius: 10px;
+background-color: var(--primary-color);
+}
+.vector:hover{
+    background-color: var(--text-color);
+}
+
+.vector img{
+    width: 20px;
+height: 24px;
+color: var(--background-color);
+} 
+
+
+
+
+
+
+/*==========================
+    CONTACT BUTTON
+==========================*/
+
+.contact-btn{
+
+    text-decoration:none;
+    display: inline-flex;
+    padding: 12px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #DF0B13;
+     color: var(--background-color);
+
+
+text-align: center;
+/* B */
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.contact-btn img{
+    width: 22.005px;
+height: 22.005px;
+ transition: transform 0.4s ease;
+}
+    
+
+.contact-btn:hover img {
+    transform: rotate(90deg);
+}
+
+
+
+
+/*  header_section */
+.hero{
+  
+      width: 100%;
+    min-height: 100vh;
+
+     background-image: url("../images/Frame\ 4.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position:relative;
+    overflow: hidden;
+}
+.hero .container{
+    padding-top: 364px;
+    
+}
+.hero-content {
+    max-width: 874px;
+    /* gap:38px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 80px;
+    margin-bottom: 37px;
+}
+
+.hero-content span {
+    display: inline-block;
+    background-color: #DF0B13;
+    border-radius: 5px;
+    padding: 5px 8px;
+    line-height: 1;
+
+}
+
+/* .hero_subcontent{
+    margin-left: 6px;
+    max-width: 778px;
+    height: 116px;
+}
+.hero_subcontent p{
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+    margin-bottom: 17px;
+} */
+ .hero_subcontent {
+    margin-left: 6px;
+    max-width: 778px;
+    margin-bottom: 30px; /* controls space before the buttons */
+}
+
+.hero_subcontent p {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 35px;
+    /* remove margin-bottom here — let the parent handle spacing */
+}
+.hero-buttons{
+    display: inline-flex;
+    gap: 25px;
+}
+.hero_buts{
+    display: inline-flex;
+padding: 12px 15px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 10px;
+background: #FFF;
+text-decoration: none;
+
+}
+
+.hero_buts span{
+    color: #000;
+text-align: center;
+  font-family: "Poppins", sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+background: #FFF;
+padding: 0px;
+}
+.hero_buts img{
+    width: 24px;
+height: 24px;
+aspect-ratio: 1/1;
+transition: transform 0.4s ease;
+}
+
+.hero_icons{
+    width:24px;
+    height:24px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero_icons .arrow{
+    position:absolute;
+    width:18px;
+    height:16px;
+    transition:transform .4s ease, opacity .4s ease;
+}
+
+/* First Arrow */
+
+.arrow1{
+    transform:translateX(0);
+    opacity:1;
+}
+
+/* Second Arrow */
+
+.arrow2{
+    transform:translateX(-25px);
+    opacity:0;
+}
+
+/* Hover */
+
+.hero_buts:hover .arrow1{
+    transform:translateX(25px);
+    opacity:0;
+}
+
+.hero_buts:hover .arrow2{
+    transform:translateX(0);
+    opacity:1;
+}
+.hero_icons2 {
+    width: 24px;
+    height: 24px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero_icons2 img {
+    width: 21px;
+    height: 21px;
+    display: block;
+}
+
+.button-bg, .button-bg span{
+  background: #FED103;
+}
+.button-bg:hover img {
+    transform: rotate(-90deg);
+}
+
+.hero .first-vector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 168px;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+ 
+  stroke: none;
+  filter: none;
+}
+
+.mega-menu{
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+    width: 1100px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,43,73,.15);
+    display: none;
+    z-index: 999;
+}
+
+.nav-link:hover .mega-menu{
+    display: block;
+}
+
+.mega-menu-inner{
+    display: flex;
+    gap: 30px;
+}
+
+/* ---- Left intro card ---- */
+.mega-intro{
+    width: 280px;
+    flex-shrink: 0;
+    background: #EAF6FC;
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-intro-icon{
+    width: 40px;
+    height: 40px;
+}
+
+.mega-intro h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mega-intro p{
+    font-size: 14px;
+    line-height: 22px;
+    color: #4a4a4a;
+}
+
+.mega-learn-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.mega-learn-btn span{
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* ---- Right grid ---- */
+.mega-links{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    position: relative;
+}
+
+/* dotted vertical divider down the middle */
+.mega-links::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 2px dotted #cfd8dc;
+}
+
+.mega-item{
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* remove bottom border on last item of each column */
+.mega-item:nth-child(1),
+.mega-item:nth-child(2){
+    padding-top: 0;
+}
+.mega-item:nth-last-child(1),
+.mega-item:nth-last-child(2){
+    border-bottom: none;
+}
+
+.mega-item-icon{
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    background: #EAF6FC;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mega-item-icon img{
+    width: 22px;
+    height: 22px;
+}
+
+.mega-item-text h4{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.mega-item-text p{
+    font-size: 13px;
+    line-height: 20px;
+    color: #7a7a7a;
+}
+
+
+
+
+
+
+
+
+/* autism_section*/
+
+.autism_section{
+    width: 100%;
+    background-color: white;
+}
+.autism_section .container{
+    margin-left: 273px;
+}
+.autism_class{
+    width: 100%;
+    display: flex;
+    gap: 83px;
+  
+
+}
+.autism_class img{
+    max-width:620px;
+    height: auto;
+}
+.autism-content{
+display: flex;
+width: 683px;
+flex-direction: column;
+align-items: flex-start;
+gap: 45px;
+margin-top: 54px;
+}
+.autism-content h1{
+color: #000;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.autism-content span{
+     display: inline-block;
+    background-color: #DF0B13;
+    border-radius: 5px;
+    padding: 5px 8px;
+    line-height: 1;
+}
+
+.autism-content p{
+color: #000;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 39px;
+}
+
+.austism-btn{
+    background-color:#006FA2
+}
