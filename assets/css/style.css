@@ -1,4 +1,3 @@
-
 *,
 *::before,
 *::after{
@@ -78,7 +77,15 @@ img{
     /* box-shadow:0 10px 25px rgba(0,0,0,.12); */
 
      position: relative; 
+      transition: border-radius 0s;
 
+}
+
+/* When a mega menu inside the header is open, flatten the bottom
+   corners so the dropdown reads as a seamless extension of the header */
+.header-container:has(.nav-link:hover){
+    border-radius: 30px 30px 0 0;
+     transition: border-radius 0s;
 }
 
 
@@ -118,22 +125,6 @@ display: block;
     color: var(--primary-color) ;
 }
 
-
-.mega-menu{
-    position: absolute;
-    width: 1390px;
-    top:100%;
-    left: 0;
-    padding:30px;
-    background:#fff;
-    border-radius:20px;
-    display: none;
-    z-index:999;
-}
-.nav-link:hover .mega-menu{
-    display: block;
-}
-
 .arrow-class{
     display: flex;
 align-items: center;
@@ -160,6 +151,18 @@ gap: 6px;
     transform: rotateX(180deg);
 }
 
+.arrow_down svg{
+   
+    transition: transform 0.3s ease;
+
+}
+.arrow-class:hover .arrow_down svg {
+    transform: rotateX(180deg);
+  
+}
+.arrow-class:hover .arrow_down svg path{
+    fill: #0095DA;
+}
 /*==========================
     RIGHT SIDE
 ==========================*/
@@ -175,15 +178,6 @@ gap: 6px;
 /*==========================
     LANGUAGE BUTTON
 ==========================*/
-/* .flag {
-    display: flex;
-    width: 70px;
-    height: 50px;
-    padding: 15px 18px 15px 19px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-} */
 
 .flag-link {
     display: flex;
@@ -224,11 +218,6 @@ background-color: var(--primary-color);
 height: 24px;
 color: var(--background-color);
 } 
-
-
-
-
-
 
 /*==========================
     CONTACT BUTTON
@@ -311,19 +300,6 @@ height: 22.005px;
 
 }
 
-/* .hero_subcontent{
-    margin-left: 6px;
-    max-width: 778px;
-    height: 116px;
-}
-.hero_subcontent p{
-    color: #FFF;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 35px;
-    margin-bottom: 17px;
-} */
  .hero_subcontent {
     margin-left: 6px;
     max-width: 778px;
@@ -451,145 +427,328 @@ transition: transform 0.4s ease;
   filter: none;
 }
 
+/*==========================
+    MEGA MENU (generic)
+==========================*/
 .mega-menu{
     position: absolute;
-    top: calc(100% + 15px);
+    top: 100%;
     left: 0;
-    width: 1100px;
-    padding: 30px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,43,73,.15);
-    display: none;
+    right: 0;
+    width: auto;
+    margin: 0;
+    padding: 0px 33px 33px 33px;
+    border-radius: 0 0 30px 30px;
+   background: #FFF;
     z-index: 999;
+    display: none;
+    transition: transform 1.5s ease;
 }
 
 .nav-link:hover .mega-menu{
     display: block;
+} 
+/* .mega-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background: white;
+    border-radius: 0 0 30px 30px;
+
+    transform-origin: top center;
+    transform: scaleY(0);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.25s ease;
+
+    overflow: hidden;
 }
+
+.nav-link:hover .mega-menu{
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+} */
 
 .mega-menu-inner{
     display: flex;
-    gap: 30px;
+    align-items: stretch;
+   
 }
 
-/* ---- Left intro card ---- */
-.mega-intro{
-    width: 280px;
+/*==========================
+    AUTISM MEGA MENU
+==========================*/
+
+.autism-mega-menu .mega-menu-inner{
+   
+display: inline-flex;
+padding: 37px 52px 37px 39px;
+align-items: center;
+gap: 45px;
+border-radius: 20px;
+background: #D7EDF8;
+   
+}
+
+.mega-card{
+    position: relative;
+    overflow: hidden;
+   width: 317px;
+   height: 414px;
+    
     flex-shrink: 0;
-    background: #EAF6FC;
-    border-radius: 16px;
-    padding: 25px;
+     border-radius: 10px;
+    background: #FFF;
+    padding: 30px 26px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
 }
-
-.mega-intro-icon{
-    width: 40px;
-    height: 40px;
-}
-
-.mega-intro h3{
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.mega-intro p{
-    font-size: 14px;
-    line-height: 22px;
-    color: #4a4a4a;
-}
-
-.mega-learn-btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 10px 18px;
-    background: var(--primary-color);
-    border-radius: 10px;
-    text-decoration: none;
-    width: fit-content;
-}
-
-.mega-learn-btn span{
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-}
-
-/* ---- Right grid ---- */
-.mega-links{
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-    position: relative;
-}
-
-/* dotted vertical divider down the middle */
-.mega-links::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    border-left: 2px dotted #cfd8dc;
-}
-
-.mega-item{
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-    text-decoration: none;
-    color: inherit;
-    padding: 18px 0;
-    border-bottom: 1px solid #eee;
-}
-
-/* remove bottom border on last item of each column */
-.mega-item:nth-child(1),
-.mega-item:nth-child(2){
-    padding-top: 0;
-}
-.mega-item:nth-last-child(1),
-.mega-item:nth-last-child(2){
-    border-bottom: none;
-}
-
-.mega-item-icon{
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    background: #EAF6FC;
-    border-radius: 10px;
+.mega-card-icon{
+    width: 45.433px;
+height: 49.002px;
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
-.mega-item-icon img{
-    width: 22px;
-    height: 22px;
+.mega-card-icon svg{
+    width: 26px;
+    height: 26px;
 }
 
-.mega-item-text h4{
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 4px;
+.mega-card .inner-card{
+    display: flex;
+width: 277px;
+flex-direction: column;
+align-items: flex-start;
+gap: 23px;
+}
+.inner-card-content{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+align-self: stretch;
+}
+.inner-card-content h3{
+    color: #000;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
 
-.mega-item-text p{
-    font-size: 13px;
-    line-height: 20px;
-    color: #7a7a7a;
+
+
+.inner-card-content p{
+   color: rgba(0, 0, 0, 0.90);
+
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px;
+margin-bottom: 27px;
+}
+.autism_mega_btn .arrow{
+    position:absolute;
+    width:18px;
+    height:16px;
+    transition:transform .4s ease, opacity .4s ease;
+}
+.autism_mega_btn:hover .arrow1{
+    transform:translateX(25px);
+    opacity:0;
+}
+
+.autism_mega_btn:hover .arrow2{
+    transform:translateX(0);
+    opacity:1;
+}
+.autism_mega_btn{
+    background-color: #006FA2;
+        display: inline-flex;
+padding: 12px 15px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 10px;
+text-decoration: none;
+}
+.autism_mega_btn span{
+    color: #fff;
+}
+
+.mega-links{
+    flex: 1;
+    display: flex;
+    gap: 53px;
+}
+
+.mega-links-col{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.mega-link-item{
+    display: flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 22px;
+
+    border-radius: 15px;
+}
+.mega-link-item:hover{
+    background-color: #FFF;
+}
+
+.mega-link-item .main{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.mega-link-line{
+    width: 100%;
+    height: 2px;
+    display: block;
+}
+
+.mega-link-icon{
+    display: flex;
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #FFF;
+     flex-shrink: 0;
+}
+.mega-link-item:hover .mega-link-icon{
+   background: #D7EDF8;
+    transform: scale(0.9);
+}
+.mega-link-item:hover .mega-link-icon svg *{
+    fill: #000;
+}
+
+
+
+.mega-link-icon svg{
+    width: 37.816px;
+    height: 46.795px;
+     transition: transform 1s ease;
+}
+
+.mega-link-text h4{
+  color: #000;
+
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.mega-link-text p{
+  color: #000;
+
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px;
+}
+
+
+/* mega menu advice and guidances */
+.advice-mega-menu .mega-menu-inner{
+    display: inline-flex;
+    padding: 37px 52px 37px 39px;
+    align-items: center;
+    gap: 45px;
+    border-radius: 20px;
+    background: #D7EDF8; /* change this if Advice & Guidance should have a different tint */
+}
+
+.advice-card{
+      background: #002B49;
+      color: #FFF;
+}
+.advice-card .inner-card-content h3,.advice-card .inner-card-content p{
+    color: white;
 }
 
 
 
 
+/*  advice hub  */
 
+.hub-mega-menu  .mega-menu-inner{
+        display: inline-flex;
+    padding: 37px 52px 37px 39px;
+   
+    gap: 38px;
+    border-radius: 20px;
+    background: #D7EDF8;
+}
+.mega-hub{
+    display: flex;
+    gap: 38px;
+     align-items: flex-start;
+}
+.hub-container{
+    display: flex;
+width: 290px;
+height: 301px;
+padding: 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 20px;
+border-radius: 10px;
+background: #FFF;
+}
+.hub-img{
+    display: flex;
+width: 42px;
+height: 42px;
+padding: 13px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+aspect-ratio: 1/1;
+border-radius: 100px;
+background: #000;
+}
+.hub-img svg{
+    width: 24px;
+height: 24px;
+}
+
+.hub-title{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
+}
+.hub-main-img{
+    height: 194px;
+flex-shrink: 0;
+align-self: stretch;
+border-radius: 8px;
+border: 4px solid #FFF;
+
+}
 
 
 
@@ -643,7 +802,10 @@ font-style: normal;
 font-weight: 500;
 line-height: 39px;
 }
+.austism-btn span{
+    background-color: #006FA2;
+}
 
 .austism-btn{
-    background-color:#006FA2
+    background-color:#006FA2;
 }
