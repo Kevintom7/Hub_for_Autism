@@ -24,3 +24,7 @@ document.querySelectorAll('.mobile-nav-toggle').forEach(btn => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+
+
+// https://hubforautism.bubblestaging.com/wp-content/uploads/2026/03/Causes-of-Autism-curve-img1-1024x67.png

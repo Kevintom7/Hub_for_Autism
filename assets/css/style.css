@@ -405,6 +405,7 @@ line-height: normal;
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 20px;
+  max-width: 327px;
 }
 .mobile-contact-btn span{
 color: #FFF;
@@ -436,6 +437,25 @@ height: 22.005px;
   border-radius: 14px;
   padding: 20px;
   color: #FFF;
+}
+
+.corner-svg{
+    position:absolute;
+    top:-15px;
+    right:-15px;
+    width:110px;
+    height:110px;
+    z-index:1;
+     opacity:.25;
+     fill: #F2F2F2;
+    pointer-events:none;
+}
+
+.corner-svg img,
+.corner-svg svg{
+    width:100%;
+    height:100%;
+    display:block;
 }
 
 .promo-icon{
@@ -668,19 +688,7 @@ transition: transform 0.4s ease;
     transform: rotate(-90deg);
 }
 
-.hero .first-vector {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 168px;
-  display: block;
-  z-index: 1;
-  pointer-events: none;
-  object-fit: cover; 
-  stroke: none;
-  filter: none;
-}
+
 
 /*==========================
     MEGA MENU (generic)
@@ -1040,6 +1048,8 @@ border: 4px solid #FFF;
 .autism_section{
     width: 100%;
     background-color: white;
+    max-height: 709px;
+  
 }
 .autism_section .container{
     overflow: hidden;
@@ -1050,6 +1060,9 @@ border: 4px solid #FFF;
     flex-wrap: wrap;      /* let it stack on narrow screens instead of overflowing */
     gap: 83px;
     padding-left: 46px;
+     /* margin-bottom: 47px; */
+     padding-top: 80px;
+  padding-bottom: 80px; 
 }
 
 /* .autism_class img{
@@ -1058,20 +1071,23 @@ border: 4px solid #FFF;
 } */
 
 .autism-img{
-  width: 620px;
+  max-width: 620px;
 height: 622px;
 aspect-ratio: 310/311;
   margin: 0 auto;      /* center it since autism_class is now column on mobile */
   position: relative;   /* establishes a positioning context for decorative shapes */
-  overflow: visible;    /* keep this visible so shapes can still peek out slightly, or use hidden if you want a hard clip */
+  overflow: visible;
+     /* keep this visible so shapes can still peek out slightly, or use hidden if you want a hard clip */
 
-  margin-bottom: 47px;
+ 
 }
 
 .autism-img img{
   width: 100%;
+  max-width: 529px;
   height: auto;
   display: block;
+
 }
 
 .autism-content{
@@ -1096,6 +1112,25 @@ line-height: normal;
     border-radius: 5px;
     padding: 5px 8px;
     line-height: 1;
+    margin-left: -10px;
+}
+
+.autism-content1{
+  display: none;
+}
+.autism-content1 h1{
+color: #000;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.autism-content1 span{
+     display: inline-block;
+    background-color: #DF0B13;
+    border-radius: 5px;
+    padding: 5px 8px;
+    line-height: 1;
 }
 
 .autism-content p{
@@ -1114,91 +1149,209 @@ line-height: 39px;
 }
 
 
-.autism_vector{
-    display: flex;
-    position: relative;
+.advice{
+    background:#fff;
 }
 
-
-/* advice section */
-.advice-section{
-    background: linear-gradient(
-        to right,
-        #56C1A7 50%,
-       #DCFCF4 50%
-    );
-
-    padding-top: 6px;
-    display: grid;
-    columns: 2;
+/* ---------- Wave ---------- */
+.wave{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    margin-bottom: -1px;
 }
+.wave svg{
+    display:block;
+    width:100%;
+    height:134px;
+}
+
+/* ---------- Background ---------- */
+.advice-body{
+    background-image: url(../images/Advice-Guidance-Block.jpg);
+    background-size: cover;
+      background-position:center;
+}
+
+.container1{
+    max-width:1558px;
+    width:100%;
+    margin:0 auto;
+    padding:0 30px;
+}
+
+/* ---------- Layout ---------- */
 .advice-wrapper{
-    display: flex;
-    gap: 150px;
+    position: relative;
+    display:flex;
+    /* align-items:center; */
+    min-height:680px;
 }
+
+/* ---------- Left ---------- */
 .left-section{
-    display: flex;
-    align-items: center;
-    gap: 70px;
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.left-img{
-    display: inline-flex;
-padding: 13px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 10px;
-background: #000;
-}
-.right-img{
-    padding: 8px;
-    background-color: white;
-    border-radius: 8px;
-
+/* Anchor for the arrow — sized to the image, not the panel */
+.image-wrap{
+    position: relative;
+    display: inline-block;
 }
 
-.right-img img{
-    border-radius: 8px;
-    max-width: 559px;
+.image-card{
+    background:#fff;
+    padding:10px;
+    border-radius:24px;
+    margin-top:-80px;   /* overlap wave */
+    z-index:2;
 }
 
+.image-card img{
+    display:block;
+    width:100%;
+    max-width:529px;
+    border-radius:14px;
+}
+
+/* Left arrow — pinned to the image card's own edge, not the panel */
+
+.left-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    left: -120px;   /* 50px arrow width + 70px gap from image edge (per Figma redline) */
+    display:inline-flex;
+    padding:13px;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    border-radius:10px;
+    background:#000;
+    width:50px;
+    height:50px;
+    box-sizing:border-box;
+    z-index:5;
+    cursor:pointer;
+}
+
+
+/* ---------- Right ---------- */
 .right-section{
-    padding-left: 46px;
-
+    width:50%;
+    padding-left:46px;
+    position: relative; /* anchor for content-right arrow */
+        padding: 0px 60px 40px 32px;
 }
 
 .right-section h2{
+    margin-bottom: 48px;
+    max-width: 559px;
     color: rgba(0, 0, 0, 0.90);
-font-size: 50px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-padding-bottom: 49px;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 40px;
+}
+
+.right-section h2 span{
+    display:inline-block;
+    background:#56C1A7;
+    padding:6px 14px;
+    border-radius:6px;
+
+
+    border-radius: 10px;
+    padding: 2px 10px;
+    margin-left: -10px;
 }
 
 .right-section h3{
     color: rgba(0, 0, 0, 0.90);
-
-font-size: 30px;
-font-style: normal;
-font-weight: 700;
-line-height: 42px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
 }
 
-.right-section span{
-   
-background: #56C1A7;
-padding: 8px;
-border-radius: 5px;
+.right-section p{
+    max-width:559px;
+    color: rgba(0, 0, 0, 0.90);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 39px;
 }
 
-  
+.advice_btn{
+    background-color: #000;
+    color: white;
+    max-width: 192px;
+}
+.advice_btn span{
+    background-color: #000;
+    color: white;
+}
+.advice_icon{
+    background-color: #000;
+    color: #FFF;
+}
 
+.right-sec-content{
+    display: flex;
+}
 
+.content-left{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
 
+/* Right arrow — pinned to the right-section's own edge */
+.content-right{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    right: 0;
+    display:inline-flex;
+    padding:13px;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    border-radius:10px;
+    background:#000;
+    width:50px;
+    height:50px;
+    box-sizing:border-box;
+    z-index:5;
+    cursor:pointer;
+}
 
-
+/* ---------- Responsive ---------- */
+@media (max-width: 768px){
+    .advice-wrapper{
+        flex-direction: column;
+        min-height: auto;
+    }
+    .left-section,
+    .right-section{
+        width: 100%;
+        padding-left: 0;
+    }
+    .left-arrow,
+    .content-right{
+        display: none;
+    }
+    .image-card{
+        margin-top: -40px;
+    }
+    .image-wrap{
+        display: block;
+    }
+}
 
 @media (max-width: 1400px) {
 
@@ -1259,7 +1412,22 @@ border-radius: 5px;
   .hero .container{
     padding-top: 300px;
   }
+
+
+  .autism_class{
+    gap: 0px;
+  }
+  .autism-content {
+    gap:35px;
+  }
+
+    .autism_section{
+    max-height: none;
+   }
+
+
 }
+
 @media (max-width: 1200px){
 
   .header-container{
@@ -1378,6 +1546,32 @@ border-radius: 5px;
     height: 150px;
   }
 
+      .hero {
+        min-height: 90vh;
+    }
+
+
+ 
+
+     .autism_class{
+    gap: 0px;
+      /* max-height:none; */
+  }
+   .autism-img{
+    max-width: 530px;
+    width: 100%;
+  }
+  .autism-content h1{
+    font-size: 46px;
+  }
+  .autism-content p {
+    font-size:15px;
+  }
+  .autism-content {
+        gap: 30px;
+    }
+
+
 }
 
 
@@ -1406,14 +1600,30 @@ border-radius: 5px;
     align-items: center;
   }
 
-   .hero .container{
-    padding-top: 250px;
-  }
+
+     .hero .container{
+        padding-top: 300px;
+    }
+    .hero{
+        min-height: 80vh;
+    }
+    .hero-content h1{
+        font-size: 55px;
+        line-height: 68px;
+    }
+    .hero_subcontent p{
+        font-size: 16px;
+        line-height: 30px;
+    }
+.autism-content1{
+  display: block;
 }
-
-
-/* ===== Tablet ===== */
-@media (max-width: 1024px){
+.autism-content1 h1{
+  font-size: 40px;
+}
+.autism-content h1{
+  display: none;
+}
 
   .autism_class{
     flex-direction: column;
@@ -1428,13 +1638,14 @@ border-radius: 5px;
 
   .autism-img{
     max-width: 480px;
-    width: 100%;
+  
+    height: 490px;
   }
 
   .autism-content{
     align-items: center;
     margin-top: 0;
-    max-width: 600px;
+    max-width: none;
     gap: 30px;
   }
 
@@ -1443,128 +1654,62 @@ border-radius: 5px;
   }
 
   .autism-content p{
-    font-size: 15px;
+    font-size: 16px;
     line-height: 32px;
   }
+
+
+
+
+
+
 }
 
 
-/* ===== Mobile ===== */
-@media (max-width: 600px){
 
-  .autism_class{
-    gap: 28px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+
+
+@media(max-width:767px){
+
+  .container{
+    padding: 0px 30px;
   }
-
-  .autism-img{
-    max-width: 260px;
+  .hero .container{
+    padding-top: 250px;
   }
-
-  .autism-content{
-    gap: 22px;
-    max-width: 100%;
+  .hero{
+     min-height: 50vh;
   }
+.autism_class{
+   gap:0px;
+} 
 
-  .autism-content h1{
-    font-size: 26px;
-    line-height: 34px;
-  }
+}
 
-  .autism-content span{
-    padding: 3px 6px;
-  }
 
-  .autism-content p{
-    font-size: 14px;
-    line-height: 26px;
-  }
 
-  .austism-btn{
+
+
+
+
+
+
+
+
+
+
+
+
+
+.first-vector{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    
     width: 100%;
-    justify-content: center;
-  }
-
-  .austism-btn span{
-    font-size: 15px;
-  }
-  
-}
-
-@media (max-width: 600px){
-  .autism-img{
-    max-width: 260px;
-  }
-
-  /* target whatever classes those decorative shapes actually use */
-  .autism-img .decor-shape,
-  .autism-img svg{
-    max-width: 100%;
     height: auto;
-  }
+    display: block;
 }
-
-
-
-
-.hero .first-vector{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 168px;
-  display: block;
-  z-index: 1;
-  pointer-events: none;
-  object-fit: cover;
-}
-
-/* ===== 1400px ===== */
-@media (max-width: 1400px){
-  .hero .first-vector{
-    height: 140px;
-  }
-}
-
-/* ===== 1200px ===== */
-@media (max-width: 1200px){
-  .hero .first-vector{
-    height: 120px;
-  }
-}
-
-/* ===== 1024px ===== */
-@media (max-width: 1024px){
-  .hero .first-vector{
-    height: 100px;
-  }
-}
-
-/* ===== Tablet 768px ===== */
-@media (max-width: 768px){
-  .hero .first-vector{
-    height: 80px;
-  }
-}
-
-/* ===== Mobile 480px ===== */
-@media (max-width: 480px){
-  .hero .first-vector{
-    height: 50px;
-  }
-}
-
-/* ===== Small mobile 360px ===== */
-@media (max-width: 360px){
-  .hero .first-vector{
-    height: 36px;
-  }
-}
-
-
 
 
 html, body{
@@ -1579,3 +1724,76 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar{
   display: none;             /* Chrome, Safari, Edge (Chromium) */
 }
+
+
+@media (max-width: 1024px){
+
+    .hero .container{
+        padding-top: 300px;
+    }
+    .hero{
+        min-height: 80vh;
+    }
+    .hero-content h1{
+        font-size: 55px;
+        line-height: 68px;
+    }
+    .hero_subcontent p{
+        font-size: 16px;
+        line-height: 30px;
+    }
+  
+}
+
+
+@media (max-width: 767px){
+   .header-container{
+               padding: 0px 10px 0px 25px;
+               height: 90px;
+     }
+    .container{
+        padding: 0px 30px;
+    }
+    .hero .container{
+        padding-top: 250px;
+    }
+    .hero{
+        min-height: 70vh;
+    }
+    .hero-content{
+        padding-left: 0;
+        align-items: center;   /* centers children horizontally */
+        text-align: center;    /* centers the heading/paragraph text itself */
+    }
+    .hero-content h1{
+        font-size: 48px;
+        line-height: 50px;
+        margin-bottom: 24px;
+    }
+    .hero_subcontent{
+        margin-left: 0;
+    }
+    .hero_subcontent p{
+        color: #FFF;
+text-align: center;
+
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 27px;
+    }
+    .hero-buttons{
+        flex-wrap: wrap;
+        justify-content: center;   /* centers the buttons row */
+        gap: 15px;
+        padding-left: 0;
+    }
+    .hero_buts{
+        padding: 10px 14px;
+    }
+    .hero_buts span{
+        font-size: 15px;
+    }
+ 
+}
+
