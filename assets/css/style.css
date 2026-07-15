@@ -1040,6 +1040,12 @@ border-radius: 8px;
 border: 4px solid #FFF;
 
 }
+.autism_arrow path {
+    fill: white;
+}
+.autism_arrow1 path {
+    fill: white;
+}
 
 
 
@@ -1108,7 +1114,7 @@ line-height: normal;
 }
 .autism-content span{
      display: inline-block;
-    background-color: #DF0B13;
+    background-color: #fed103;
     border-radius: 5px;
     padding: 5px 8px;
     line-height: 1;
@@ -1142,12 +1148,14 @@ line-height: 39px;
 }
 .austism-btn span{
     background-color: #006FA2;
+    color: white;
 }
 
 .austism-btn{
     background-color:#006FA2;
 }
 
+/* advice section */
 
 .advice{
     background:#fff;
@@ -1169,60 +1177,25 @@ line-height: 39px;
 .advice-body{
     background-image: url(../images/Advice-Guidance-Block.jpg);
     background-size: cover;
-      background-position:center;
-}
-
-.container1{
-    max-width:1558px;
-    width:100%;
-    margin:0 auto;
-    padding:0 30px;
+    background-position:center;
 }
 
 /* ---------- Layout ---------- */
 .advice-wrapper{
-    position: relative;
+    position: relative;   /* shared anchor for BOTH arrows */
     display:flex;
-    /* align-items:center; */
     min-height:680px;
 }
 
-/* ---------- Left ---------- */
-.left-section{
-    width:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* Anchor for the arrow — sized to the image, not the panel */
-.image-wrap{
-    position: relative;
-    display: inline-block;
-}
-
-.image-card{
-    background:#fff;
-    padding:10px;
-    border-radius:24px;
-    margin-top:-80px;   /* overlap wave */
-    z-index:2;
-}
-
-.image-card img{
-    display:block;
-    width:100%;
-    max-width:529px;
-    border-radius:14px;
-}
-
-/* Left arrow — pinned to the image card's own edge, not the panel */
-
-.left-arrow{
+/* ---------- Arrows (shared) ----------
+   Both are direct children of .advice-wrapper, so top:290px
+   measures from the exact same box on both sides — that's
+   what keeps them level now. */
+.left-arrow
+{
     position:absolute;
-    top:50%;
+    top:290px;
     transform:translateY(-50%);
-    left: -120px;   /* 50px arrow width + 70px gap from image edge (per Figma redline) */
     display:inline-flex;
     padding:13px;
     justify-content:center;
@@ -1236,14 +1209,76 @@ line-height: 39px;
     z-index:5;
     cursor:pointer;
 }
+.content-right{
+       /* position:absolute;
+    top:290px; */
+    transform:translateY(-50%);
+    display:inline-flex;
+    padding:13px;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    border-radius:10px;
+    background:#000;
+    width:50px;
+    height:50px;
+    box-sizing:border-box;
+    z-index:5;
+    cursor:pointer;
+    margin-top: 49px;
 
+}
+
+.left-arrow{
+    left:211px;
+}
+
+.content-right{
+    right:211px;
+}
+
+/* ---------- Left ---------- */
+.left-section{
+    width:50%;
+    display:flex;
+    /* align-items:center; */
+    margin-top: 30px;
+}
+.class_test{
+    width: 95%;
+    
+}
+
+.image-wrap{
+    position: relative;
+    display: inline-block;
+}
+
+.image-card{
+    background:#fff;
+    padding:10px;
+    border-radius:24px;
+    z-index:2;
+    margin-left: 331px;
+}
+
+.image-card img{
+    display:block;
+    width:100%;
+    max-width:529px;
+    border-radius:14px;
+}
 
 /* ---------- Right ---------- */
 .right-section{
     width:50%;
     padding-left:46px;
-    position: relative; /* anchor for content-right arrow */
-        padding: 0px 60px 40px 32px;
+    padding: 0px 60px 40px 50px;
+}
+
+.content-wrap{
+    display: block;
+    width: 100%;
 }
 
 .right-section h2{
@@ -1254,16 +1289,13 @@ line-height: 39px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    padding-top: 40px;
+    /* padding-top: 40px; */
+    max-height: 150px;
 }
 
 .right-section h2 span{
     display:inline-block;
     background:#56C1A7;
-    padding:6px 14px;
-    border-radius:6px;
-
-
     border-radius: 10px;
     padding: 2px 10px;
     margin-left: -10px;
@@ -1275,6 +1307,7 @@ line-height: 39px;
     font-style: normal;
     font-weight: 700;
     line-height: 42px;
+   
 }
 
 .right-section p{
@@ -1302,56 +1335,264 @@ line-height: 39px;
 
 .right-sec-content{
     display: flex;
+    gap: 100px;
 }
 
 .content-left{
     gap: 30px;
     display: flex;
     flex-direction: column;
+     max-width: 559px;
 }
 
-/* Right arrow — pinned to the right-section's own edge */
-.content-right{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    right: 0;
-    display:inline-flex;
-    padding:13px;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    border-radius:10px;
-    background:#000;
-    width:50px;
-    height:50px;
-    box-sizing:border-box;
-    z-index:5;
-    cursor:pointer;
+/* keep all your existing .advice, .wave, .advice-scale-outer, .advice-wrapper,
+   .left-arrow, .content-right, .left-section, .image-wrap, .image-card,
+   .right-section rules exactly as they were — just add this: */
+
+.content-wrap{
+    display: block;
+    width: 100%;
+    padding-top: 40px;
+       /* clips the sliding track so content doesn't spill out */
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 768px){
-    .advice-wrapper{
-        flex-direction: column;
-        min-height: auto;
-    }
-    .left-section,
-    .right-section{
-        width: 100%;
-        padding-left: 0;
-    }
-    .left-arrow,
-    .content-right{
-        display: none;
-    }
-    .image-card{
-        margin-top: -40px;
-    }
-    .image-wrap{
-        display: block;
-    }
+.carousel-track{
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
+
+/* state classes toggled by JS during a transition */
+.carousel-track.slide-out-left{
+    transform: translateX(-40px);
+    opacity: 0;
+}
+.carousel-track.slide-out-right{
+    transform: translateX(40px);
+    opacity: 0;
+}
+.carousel-track.slide-in{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.image-card{
+    overflow:hidden;
+}
+.image-card img{
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.image-card img.slide-out-left{
+    transform: translateX(-40px);
+    opacity: 0;
+}
+.image-card img.slide-out-right{
+    transform: translateX(40px);
+    opacity: 0;
+}
+.image-card img.slide-in{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+
+/* value */
+
+.value_section{
+    background-color: #002B49;
+     background-image: url(../images/Frame-811111.webp);
+    background-size: cover;
+    background-position:center;
+
+}
+.value-container{
+    padding: 80px 29px;
+    max-width: 1398px;
+    margin: 0px auto;
+    justify-content:center ;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     gap: 70px;
+     align-items: center;
+}
+
+.value-container h1{
+color: #FFF;
+text-align: center;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.value-card-sec{
+  display: grid;
+height: 400px;
+row-gap: 24px;
+column-gap: 24px;
+align-self: stretch;
+grid-template-rows: repeat(1,minmax(0,1fr));
+grid-template-columns: repeat(4,minmax(0,1fr));
+
+
+}
+
+.value-card{
+    max-width: 331.5px;
+height: 400px;
+/* grid-row: 1 / span 1;
+grid-column: 1 / span 1; */
+ border-radius: 24px;
+ position: relative;
+  overflow: hidden;
+
+}
+.card-content{
+    display: flex;
+max-width: 268px;
+flex-direction: column;
+align-items: flex-start;
+gap: 20px;
+padding-top: 34px;
+padding-left: 32px;
+}
+
+.card-content h1{
+    color: #FFF;
+
+font-size: 140px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+
+display: flex;
+height: 114px;
+flex-direction: column;
+justify-content: center;
+
+
+
+
+}
+.card-1{
+   
+background: #006fa2;
+}
+
+
+.card-content h3{
+    color: #FFF;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 42px;
+
+}
+.card-content p{
+color: rgba(255, 255, 255, 0.90);
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 35px;
+}
+.card-subcontent{
+    gap: 10px;
+}
+
+
+.card-2{
+   background: #56c1a7;
+}
+.card-content-2 h1,.card-content-2 h3,.card-content-2 p{
+    color: #002B49;
+}
+.card-content-2 h1{
+    height: 114px;
+     align-self: flex-end; 
+}
+.card-3{
+    background: #fed103;
+}
+.card-content-3 h1,.card-content-3 h3,.card-content-3 p{
+    color: #002B49;
+}
+.card-4{
+  background: #cb060d;
+}
+
+.card-content-4 h1,.card-content-4 h3,.card-content-4 p{
+    color: white;
+}
+.card-content-4 h1 {
+    height: 114px;
+    align-self: flex-end;
+   
+}
+
+.value_btn{
+    max-width: 201px;
+}
+
+.value-wave{
+    display: flex;
+}
+
+.value-wave{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    margin-bottom: -1px;
+}
+.value-wave svg{
+    display:block;
+    width:100%;
+    height:164px;
+    object-fit:fill;
+}
+
+.value-bg{
+    position: absolute;
+    top: 17px;
+    right: 4px;
+    opacity: 0.06;
+    z-index: 1;
+}
+.value-bg1{
+    position: absolute;
+    top: 150px;
+    right: 120px;
+    opacity: 0.08;
+    z-index: 1;
+    fill: #FFF;
+    
+}
+
+.value-bg2{
+    position: absolute;
+    top: 0px;
+    left: 123px;
+    z-index: 1;
+    fill: #000;
+    opacity: 0.06;
+}
+
+.value-bg3{
+    position: absolute;
+    top: 180px;
+    left: 143.5px;
+    z-index: 1;
+    fill: white;
+    opacity: 0.06;
+}
+
+.card-content{
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
 
 @media (max-width: 1400px) {
 
@@ -1424,6 +1665,48 @@ line-height: 39px;
     .autism_section{
     max-height: none;
    }
+
+   .image-card img{
+
+    width: 300px;
+    position: absolute;
+   }
+
+
+
+
+
+   /*  advice_section  */
+
+.right-section h2{
+        
+    max-width: 559px;
+    font-size: 40px;
+    font-weight: 600;
+  
+}
+
+.right-section h3{
+    font-size: 28px;
+}
+.content-left{
+        gap: 28px;
+}
+.right-sec-content{
+    gap: 0px;
+}
+
+
+
+
+/* value section */
+.value-card-sec{
+    grid-auto-flow: row;
+}
+.card-content{
+    padding-left: 10px;
+}
+
 
 
 }
@@ -1572,6 +1855,44 @@ line-height: 39px;
     }
 
 
+
+
+    /* value section */
+
+ .value-card{
+        max-width: 100%;
+        height: auto;
+        min-height: 280px;
+    }
+.value-card-sec{
+    display:grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch;   /* explicit, in case something upstream changed it */
+    height: auto;
+    row-gap: 24px;
+    column-gap: 24px;
+    justify-content: center;
+}
+.card-content{
+    max-width: 100%;
+    padding: 32px;
+}
+.card-content h1{
+    font-size: 58px;
+    height: auto;
+}
+.card-subcontent {
+   display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+}
+.value-container{
+    padding: 80px 0px;
+}
 }
 
 
@@ -1657,12 +1978,6 @@ line-height: 39px;
     font-size: 16px;
     line-height: 32px;
   }
-
-
-
-
-
-
 }
 
 
@@ -1687,7 +2002,36 @@ line-height: 39px;
 }
 
 
+@media(max-width:567px){
 
+    .value-container{
+        gap:40px
+    }
+    .value-container h1{
+        font-size: 32px;
+    }
+    .value-card-sec{
+    display:grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: stretch;   
+    height: auto;
+    row-gap: 30px;
+    column-gap: 30px;
+    justify-content: center;
+    padding: 0px 14px;
+}
+.value-card{
+    min-height: auto;
+}
+.card-content{
+    padding-top: 12px;
+        padding-bottom:24px;
+
+        padding-left: 30px;
+        padding-right: 30px;
+}
+}
 
 
 
@@ -1796,4 +2140,9 @@ line-height: 27px;
     }
  
 }
+
+
+
+
+
 
