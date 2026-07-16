@@ -1498,6 +1498,9 @@ line-height: 35px;
 }
 .card-subcontent{
     gap: 10px;
+    display:flex;
+    flex-direction: column;
+    text-align: left;
 }
 
 
@@ -1538,16 +1541,11 @@ line-height: 35px;
     display: flex;
 }
 
-.value-wave{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    margin-bottom: -1px;
-}
 .value-wave svg{
-    display:block;
-    width:100%;
-    height:164px;
-    object-fit:fill;
+    display: block;
+    flex: 1;
+    width: 100%;
+    height: auto;
 }
 
 .value-bg{
@@ -1589,6 +1587,384 @@ line-height: 35px;
     position: relative;
     z-index: 2;
 }
+
+
+
+
+/* memenbership section*/
+
+.membership_section{
+    background-color: #FFF;
+}
+
+.membership_wrapper{
+    width: 100%;
+    padding-left: 27px;
+    padding-right: 4px;
+    display: flex;
+    gap: 127px;
+    align-items: center;   /*move the img center */
+}
+.memebership_content{
+    display: flex;
+    flex-direction: column;
+    gap:21px;
+    padding-top: 41px;
+    max-width: 720px;
+   
+}
+.membership_content1 h2{
+       color: #000;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+display: none;
+}
+.membership_content1 span{
+       background: #fed103;
+       padding: 5px 7px 3px 10px;
+       border-radius: 10px;
+}
+.memebership_content h2{
+    color: #000;
+font-size: 50px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.memebership_content span{
+       background: #fed103;
+       padding: 5px 7px 3px 10px;
+       border-radius: 10px;
+}
+.memebership_content p{
+    color: #000;
+
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 39px; 
+}
+.support_details{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.support_content-1{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+     white-space: nowrap;
+}
+.support_content-1 p{
+      color: #000;
+
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 35px;
+}
+.left-section1{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+     padding-bottom: 77.14px;
+}
+.membership_btn{
+  max-width: 319px;
+}
+.membership_right{
+    padding-top: 14px;
+}
+
+.membership_right img{
+    display: block;
+    width: 100%;
+    max-width: 579px;
+    height: auto;
+}
+
+
+.knowledge_section{
+     background-color: #002B49;
+     background-image: url(../images/Blue-Background.webp);
+     background-size: cover;
+     background-position: center;
+}
+
+.knowledge_wrapper{
+    padding-left: 27px;
+    padding-right: 24px;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 61px;
+    align-items: center;
+    max-width: 1458px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.knowledge_heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    max-width: 1398px;
+    flex-wrap: wrap;   /* box drops below heading on narrow screens */
+}
+
+.knowledge_heading h2{
+    color: #FFF;
+    font-size:50px;
+    font-weight: 700;
+    line-height: normal;
+    flex: 1 1 280px;
+    margin: 0;
+}
+
+.knowledge_box{
+    display: inline-flex;
+    padding: 14px 25px 14px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    border-radius: 24px;
+    border: 4px solid #FFF;
+    background: var(--Blue, #006FA2);
+    max-width: 654px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.knowledge_box p{
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 35px; 
+    max-width: 580px;
+    margin: 0;
+}
+
+.knowledge_card{
+    display: flex;
+    width: 100%;
+    max-width: 1398px;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;      /* ← removes forced single-row overflow */
+}
+
+.know_card1{
+    display: flex;
+    flex: 1 1 300px;      /* grows/shrinks between 300px and max-width */
+    max-width: 446px;
+    /* padding: clamp(20px, 3vw, 34px); */
+    padding: 34px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 24px;
+    border: 4px solid #FFF;
+    background: #FFF;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.head-card{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+}
+
+.head-card h2{
+    color: #000;
+    /* font-size: clamp(20px, 2.2vw, 30px); */
+   
+    /* line-height: 1.3; */
+    width: auto;
+    max-width: none;
+    flex: 1;
+    margin: 0;
+    transition: color 0.3s ease;
+
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 42px;
+}
+
+.know_card1 p{
+    color: rgba(0, 0, 0, 0.90);
+    margin: 0;
+    transition: color 0.3s ease;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 39px;
+}
+
+.know_card1 img{
+    max-width: 100%;
+    /* max-width: 378px; */
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.head-card-line{
+    width: 100%;
+    height: 3px;
+    display: block;
+}
+
+.head-card-img{
+    display: flex;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;      /* prevents squishing when h2 wraps to 2 lines */
+    padding: 9.771px 10.73px 10.732px 9.772px;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 100px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.corner-arrow{
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.corner-arrow1{ position: relative; }
+.corner-arrow2{
+    position: absolute;
+    top: 9.771px;
+    left: 9.772px;
+    transform: translate(-30px, 30px);
+    opacity: 0;
+}
+.know_card1:hover .corner-arrow1{
+    transform: translate(30px, -30px);
+    opacity: 0;
+}
+.know_card1:hover .corner-arrow2{
+    transform: translate(0, 0);
+    opacity: 1;
+}
+.know_card1:hover{
+background: rgba(0, 0, 0, 0.20);
+}
+.know_card1:hover .head-card h2{
+    color: #fff;
+}
+.know_card1:hover p{
+    color: #fff;
+}
+
+.knowledge_btn{
+    max-width: 237px;
+    width: 100%;
+    
+}
+
+.knowledge_bt{
+    padding-top: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 61px;
+}
+.knowledge_bot svg{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* ---- footer_section ---- */
+
+.footer_section{
+    /* padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto; */
+    width: 100%;
+    background: #002B49;
+}
+.footer-top{
+    height: 264px;
+    background: #D7EDF8;
+}
+.footer-content{
+      padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 217px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-vision{
+    max-width:326px;
+ 
+color: #FFF;
+padding-top: 29px;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 34px;
+}
+.social_media{
+    padding-top: 29px;
+    display: inline-flex;
+align-items: center;
+gap: 12px;
+}
+.social_icon{
+    display: flex;
+width: 32px;
+height: 32px;
+justify-content: center;
+align-items: center;
+border-radius: 16777200px;
+border: 1px solid #FFF;
+}
+.foot-middle{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 748px;
+}
+.foot-menu1{
+  display: flex;
+  gap: 19px;
+  flex-direction: column;
+
+}
+.foot-menu1 h2{
+    color: #FFF;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 35px;
+}
+.foot-menuitems{
+display: flex;
+flex-direction: column;
+gap: 13px;
+ color: #C5D5DF;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 39px;
+}
+
+
 
 
 
@@ -1893,6 +2269,33 @@ line-height: 35px;
 .value-container{
     padding: 80px 0px;
 }
+
+
+/* membership_section*/
+.memebership_content h2{
+     font-size: 45px;
+     line-height: 1.5;
+}
+
+
+
+/* knowledge_section */
+
+.knowledge_card{
+    gap: 20px;
+}
+.know_card1{
+     flex-basis: 300px; 
+     padding: 28px;
+     }
+
+.knowledge_heading h2{
+    font-size: 45px;
+}
+
+
+
+
 }
 
 
@@ -1978,6 +2381,69 @@ line-height: 35px;
     font-size: 16px;
     line-height: 32px;
   }
+
+
+
+  /*membership_section*/
+
+  .membership_wrapper{
+    flex-direction: column;
+    padding-top: 88px;
+    gap: 20px;
+
+  }
+    .memebership_content1{
+        width: 100%;
+        display: block;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+  .membership_content1 h2{
+    display: block;
+    font-size: 40px;
+    text-align: center;
+  }
+     .item1 {
+        order: 1;
+    }
+
+    .item3 {
+        order: 2;
+    }
+
+    .item2 {
+        order: 3;
+    }
+
+    .memebership_content h2{
+        display: none;
+    }
+    .left-section1{
+     align-items: center;
+    }
+    .memebership_content{
+              max-width: none;
+              padding-top: 0px;
+    }
+    .support_details{
+        justify-content: center;
+    }
+    /*knowledge_section */
+    
+    .know_card1{ flex-basis: 45%; max-width: 45%; }
+
+    .knowledge_heading h2{
+        text-align: center;
+    }
+    .knowledge_box{
+             max-width: none;
+    }
+    .knowledge_box p {
+        max-width: none;
+    }
+
+
 }
 
 
@@ -1998,6 +2464,51 @@ line-height: 35px;
 .autism_class{
    gap:0px;
 } 
+
+
+/*knowledge_section */
+@media (max-width: 767px){
+    .know_card1{ 
+        flex-basis: 100%; 
+        max-width: 100%;
+     }
+    .knowledge_wrapper{ 
+        padding-left: 20px;
+         padding-right: 20px;
+          padding-top: 56px;
+           gap: 48px;
+         }
+    .knowledge_heading{ 
+        gap: 24px;
+     }
+    .knowledge_box{ 
+        max-height: none
+     }
+     .know_card1 > div{
+        width: 100%;
+    }
+
+    .know_card1 img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;  
+         /* keeps aspect ratio clean if you also set a fixed height */
+    }
+    .itema4{
+         order: 1;
+    }
+     .itema1{
+         order: 2;
+    }
+     .itema2{
+         order: 3;
+    }
+     .itema3{
+         order: 4;
+    }
+}
 
 }
 
@@ -2031,6 +2542,47 @@ line-height: 35px;
         padding-left: 30px;
         padding-right: 30px;
 }
+
+
+/* memebership_section */
+
+ .membership_content1 h2{
+   
+    font-size: 32px;
+   
+  }
+  .memebership_content p {
+    font-size: 14px;
+  }
+        .support_content-1 p{
+ font-size: 16px;
+        line-height: 1.928;
+        }
+
+
+/* knowledge_section */
+
+.knowledge_wrapper{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 40px; 
+    gap: 32px; 
+ }
+.know_card1{ 
+    padding: 20px;
+ }
+.knowledge_heading h2{
+    font-size: 28px;
+         }
+.head-card h2{ 
+    font-size: 20px;
+ }
+
+
+
+
+
+
 }
 
 
