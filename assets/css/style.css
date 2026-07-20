@@ -183,6 +183,7 @@ gap: 6px;
 
 }
 
+
 /*==========================
     LANGUAGE BUTTON
 ==========================*/
@@ -577,8 +578,8 @@ height: 22.005px;
 .hero-content span {
     display: inline-block;
     background-color: #DF0B13;
-    border-radius: 5px;
-    padding: 5px 8px;
+    border-radius: 10px;
+    padding: 6px 12px;
     line-height: 1;
 
 }
@@ -646,8 +647,8 @@ transition: transform 0.4s ease;
 
 .hero_icons .arrow{
     position:absolute;
-    width:18px;
-    height:16px;
+    /* width:18px;
+    height:16px; */
     transition:transform .4s ease, opacity .4s ease;
 }
 
@@ -805,6 +806,22 @@ height: 49.002px;
     width: 26px;
     height: 26px;
 }
+.puzzle-shape{
+    position: absolute;
+    top: -10px;
+    right: -25px;
+    width: 135.55px;
+    height: 135.26px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* both svgs occupy the identical box so they overlay perfectly */
+.puzzle-shape.puzzle-shape-outline{
+    top: -10px;
+    right: -25px;
+}
+
 
 .mega-card .inner-card{
     display: flex;
@@ -855,7 +872,7 @@ margin-bottom: 27px;
     opacity:1;
 }
 .autism_mega_btn{
-    background-color: #006FA2;
+    background-color: white;
         display: inline-flex;
 padding: 12px 15px;
 justify-content: center;
@@ -864,8 +881,17 @@ gap: 10px;
 border-radius: 10px;
 text-decoration: none;
 }
+
 .autism_mega_btn span{
-    color: #fff;
+    color: black;
+}
+
+.hub_btn{
+    background-color: #006FA2;
+  
+}
+.hub_btn span{
+  color: white;
 }
 
 .mega-links{
@@ -1030,10 +1056,13 @@ gap: 10px;
 aspect-ratio: 1/1;
 border-radius: 100px;
 background: #000;
+ position: relative;   /* Required */
+    overflow: hidden; 
 }
-.hub-img svg{
-    width: 24px;
-height: 24px;
+.mega-overimg{
+    position: absolute;
+    top: -6px;
+    left: 212px;
 }
 
 .hub-title{
@@ -1065,6 +1094,37 @@ border: 4px solid #FFF;
     fill: white;
 }
 
+
+
+
+
+.hub-arrow{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    transition: transform .35s ease, opacity .35s ease;
+}
+
+.hub-arrow1{
+    transform: translate(0,0);
+    opacity: 1;
+}
+
+.hub-arrow2{
+    transform: translate(-16px,16px);
+    opacity: 0;
+}
+
+/* Hover animation */
+.hub-container:hover .hub-arrow1{
+    transform: translate(20px,-20px);
+    opacity: 0;
+}
+
+.hub-container:hover .hub-arrow2{
+    transform: translate(0,0);
+    opacity: 1;
+}
 
 
 /* autism_section*/
@@ -1296,6 +1356,101 @@ line-height: 39px;
     display: none;
 }
 
+/*animation*/
+.ags-image-frame{
+    position: relative;
+    max-width: 559px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    border: 15px solid #FFF;
+}
+
+.ags-image-slide{
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.ags-image-slide.ags-active{
+    display: block;
+    animation: agsFadeIn .5s ease both;
+}
+.ags-image-slide.ags-exit{
+    display: block;
+    position: absolute;
+    inset: 0;
+    animation: agsFadeOut .5s ease both;
+}
+
+/* white flash layer sits above both images during the swap */
+.ags-image-frame::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #FFF;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+.ags-image-frame.ags-flash::after{
+    animation: agsWhiteFlash .5s ease;
+}
+
+.ags-content-track{
+    position: relative;
+    max-width: 559px;
+    width: 100%;
+    overflow: hidden; /* clips slide movement so it never leaves this section */
+}
+
+.ags-content-slide{
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* no bottom/inset — height grows to fit content (heading, text, button) */
+}
+
+.ags-content-slide.ags-active{
+    display: flex;
+    position: relative; /* the active slide sets the track's real height */
+    animation: agsSlideIn .5s ease both;
+}
+.ags-content-slide.ags-exit{
+    display: flex;
+    animation: agsSlideOut .5s ease both;
+}
+
+@keyframes agsFadeIn{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes agsFadeOut{
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes agsWhiteFlash{
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes agsSlideIn{
+    0%   { opacity: 0; transform: translateX(40px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes agsSlideOut{
+    0%   { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-40px); }
+}
+
+.ags-arrow{ cursor: pointer; }
 /* ---------- Right column (heading + text) ---------- */
 .advice_right{
     flex: 1 1 0%;
@@ -1393,6 +1548,46 @@ line-height: 42px;
     fill: #fff;
 }
 
+.arrow-advice{
+    overflow: hidden; /* keep this so the second icon doesn't spill out */
+}
+
+.arrow-advice .hero_icons{
+    width: 24px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-advice .hero_icons .arrow{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: transform .4s ease, opacity .4s ease;
+}
+
+.arrow-advice .arrow1{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.arrow-advice .arrow2{
+    transform: translateX(-25px);
+    opacity: 0;
+}
+
+.arrow-advice:hover .arrow1{
+    transform: translateX(25px);
+    opacity: 0;
+}
+
+.arrow-advice:hover .arrow2{
+    transform: translateX(0);
+    opacity: 1;
+}
 /* value */
 
 .value_section{
@@ -2713,6 +2908,7 @@ gap: 10px;
     }
     .advice_main{
         flex-direction: column;
+                align-items: center;
     }
     .advice_head{
                  display: none;
@@ -3133,6 +3329,7 @@ line-height: 27px;
     .footer_ends{
         padding-top: 16px;
         padding-bottom: 24px;
+        align-items: center;
     }
 
     .footer_policy{
@@ -3267,7 +3464,7 @@ line-height: 27px;
 
   .navbar{
     gap: 24px;
-    margin-left: 50px;   /* was 77px */
+    /* was 77px */
   }
 
   .navbar a{
@@ -3277,7 +3474,6 @@ line-height: 27px;
 
   .header-right{
     gap: 12px;
-    margin-left: 50px;   /* was 63px */
   }
 
   .flag-link,
@@ -3309,7 +3505,7 @@ line-height: 27px;
 
   .navbar{
     gap: 14px;
-    margin-left: 29px;   /* was 50px */
+  
   }
 
   .navbar a{
